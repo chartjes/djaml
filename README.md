@@ -1,9 +1,9 @@
 -*- markdown -*-
 
-Djaml is template Loader for Django that allows you to use [HamlPy](https://github.com/jessemiller/HamlPy) in your templates
+Djaml is a template loader for Django that allows you to use [HamlPy](https://github.com/jessemiller/HamlPy) in your templates
 
 It is based on the [django-shpaml-template-loader project](http://bitbucket.org/jiaaro/django-shpaml-template-loader),
-and is licensed under the GPL.
+and is licensed under the MIT license.
 
 ## Requirements
 
@@ -28,4 +28,3 @@ Make sure your templates have a .haml extension, and put them wherever you've to
 to expect to find templates.
 
 If you have any questions or comments, send some email to chartjes@littlehart.net
-
