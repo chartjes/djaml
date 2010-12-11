@@ -8,11 +8,12 @@ and is licensed under the MIT license.
 ## Requirements
 
 * [Django](http://www.djangoproject.org) -- I've tested it using Django 1.2.3 and the version of Django that is included with the [djangoappengine](http://www.allbuttonspressed.com/projects/djangoappengine) project
-* HamlPy -- tested using version as of December 4, 2010
+* [HamlPy](https://github.com/jessemiller/HamlPy) -- tested using version as of December 4, 2010
 
 ## Installation
 
-Sorry, no setup.py file yet so you must copy djaml into the root of your Django project.
+You can either copy all the files into 'djaml' in the root of your Django project
+or install it using the included setup.py file.
 
 Having done that, you need to add djaml as the first item in TEMPLATE_LOADERS 
     
