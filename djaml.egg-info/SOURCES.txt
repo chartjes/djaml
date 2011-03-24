@@ -1,0 +1,8 @@
+setup.py
+djaml/__init__.py
+djaml/loaders.py
+djaml/utils.py
+djaml.egg-info/PKG-INFO
+djaml.egg-info/SOURCES.txt
+djaml.egg-info/dependency_links.txt
+djaml.egg-info/top_level.txt
