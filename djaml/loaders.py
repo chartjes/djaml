@@ -1,8 +1,10 @@
+import os
+
 from django.template import TemplateDoesNotExist
 
 from hamlpy import hamlpy
 
-from utils import get_django_template_loaders
+from djaml.utils import get_django_template_loaders
 
 def get_haml_loader(loader):
     if hasattr(loader, 'Loader'):
@@ -14,7 +16,7 @@ def get_haml_loader(loader):
 
     class Loader(baseclass):
         def load_template_source(self, template_name, *args, **kwargs):
-            _name, _extension = template_name.split(".")
+            _name, _extension = os.path.splitext(template_name)
 
             for extension in ["hamlpy", "haml"]:
                 try:
