@@ -19,6 +19,7 @@ Having done that, you need to add djaml as the first item in TEMPLATE_LOADERS
     
     TEMPLATE_LOADERS = (
         'djaml.filesystem',
+        'djaml.app_directories',
         ...
     )
 
