@@ -14,6 +14,8 @@ setup(
     url='http://github.com/chartjes/djaml/',
     packages=['djaml'],
     long_description=__doc__,
+    install_requires = ["hamlpy", "Pygments"],
+
     classifiers=[
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python',
