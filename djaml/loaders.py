@@ -4,7 +4,7 @@ from django.template import TemplateDoesNotExist
 
 from hamlpy import hamlpy
 
-from djaml.utils import get_django_template_loaders
+from django.template.loaders import filesystem, app_directories
 
 
 def get_haml_loader(loader):
