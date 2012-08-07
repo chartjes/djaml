@@ -1,10 +1,12 @@
 import os
 
 from django.template import TemplateDoesNotExist
+from django.template.loaders import filesystem, app_directories
 
 from hamlpy import hamlpy
 
 from djaml.utils import get_django_template_loaders
+
 
 def get_haml_loader(loader):
     if hasattr(loader, 'Loader'):
@@ -40,5 +42,10 @@ def get_haml_loader(loader):
 
     return Loader
 
+
 haml_loaders = dict((name, get_haml_loader(loader))
         for (name, loader) in get_django_template_loaders())
+
+
+DjamlFilesystemLoader = get_haml_loader(filesystem)
+DjamlAppDirectoriesLoader = get_haml_loader(app_directories)
