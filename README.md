@@ -1,5 +1,3 @@
--*- markdown -*-
-
 Djaml is a template loader for Django that allows you to use [HamlPy](https://github.com/jessemiller/HamlPy) in your templates
 
 It is based on the [django-shpaml-template-loader project](http://bitbucket.org/jiaaro/django-shpaml-template-loader),
@@ -34,14 +32,14 @@ to expect to find templates.
 
 Just add `django.template.loaders.cached.Loader` to your TEMPLATE_LOADERS:
 
-TEMPLATE_LOADERS = (
-    ('django.template.loaders.cached.Loader', (
-        ...
-        'djaml.loaders.DjamlFilesystemLoader',
-        'django.template.loaders.filesystem.Loader',
-        ...
-  )),
-)
+    TEMPLATE_LOADERS = (
+        ('django.template.loaders.cached.Loader', (
+            ...
+            'djaml.loaders.DjamlFilesystemLoader',
+            'django.template.loaders.filesystem.Loader',
+            ...
+      )),
+    )
 
 
 ## Example
