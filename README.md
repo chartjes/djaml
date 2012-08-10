@@ -46,49 +46,44 @@ Just add `django.template.loaders.cached.Loader` to your TEMPLATE_LOADERS:
 
 Here's a sample of what a Django layout file looks like using Haml:
 
-    <!DOCTYPE html>
+    # base.haml
+    !!!
     %html
-      %head
-        %meta{'http-equiv': 'Content-Type', 'content': 'text/html; charset=UTF-8'}
-        %title Internet Baseball League
-        %link{'rel': 'stylesheet', 'type': 'text/css', 'href':'/site_media/css/grid.css'}
-        %link{'rel': 'stylesheet', 'type': 'text/css', 'href':'/site_media/css/ibl.css'}
-        %script{'src': "/site_media/js/modernizr-1.7.min.js"}
-      %body
-        %div{'class': 'row'}
-          #sidebar{'class': 'column grid_2'}
-            %img{'src': '/site_media/images/ibl_logo.gif', 'alt': 'IBL Logo'}<br>
-            #navcontainer
-              %ul#navlist
-                %li
-                  %a{'href': '{% url home %}'} Home
-                %li
-                  %a{'href': 'http://archive.ibl.org'} Archive
-                %li
-                  %a{'href': 'http://iblgame.ibl.org'} Cards
-                %li
-                  %a{'href': 'http://wiki.ibl.org/dokuwiki/doku.php?id=constitution'} Constitution
-                %li
-                  %a{'href': '{% url free-agents %}'} Free Agents
-                %li
-                  %a{'href': 'http://wiki.ibl.org/dokuwiki/doku.php?id=owners'} Owners
-                %li
-                  %a{'href': '/results'} Results
-                %li
-                  %a{'href': '/rotations'} Rotations
-                %li
-                  %a{'href': '/schedule'} Schedule
-                %li
-                  %a{'href': '/standings'} Standings
-                %li
-                  %a{'href': '/starts'} Starts / Limits
-                %li
-                  %a{'href': 'http://wiki.ibl.org'} Wiki
-                %li
+        %head
+            %title
+                -block title
+                    Internet Baseball League
+            %meta{'http-equiv': 'Content-Type', content: 'text/html; charset=UTF-8'}/
+            %link{rel: 'stylesheet', type: 'text/css', href:'/site_media/css/grid.css'}/
+            %link{rel: 'stylesheet', type: 'text/css', href:'/site_media/css/ibl.css'}/
+            %script{src: "/site_media/js/modernizr-1.7.min.js"}
+        %body
+            .row
+                #sidebar.column.grid_2
+                    %img{src: '/site_media/images/ibl_logo.gif', alt: 'IBL Logo'}<br>
+                    #navcontainer
+                        %ul#navlist
+                            %li
+                                %a{href: '{% url home %}'} Home
+                            %li
+                                %a{href: 'http://archive.ibl.org'} Archive
 
-          #container{'class': 'column grid_10'}
-            {% block content %}
-            {% endblock %}
+                #container.column.grid_10
+                    - block content
+                        Some text for the content
+
+
+    # one.haml
+    -extends 'base.haml'
+    -block title
+         Another page
+    -block content
+         .wide More content
+
+         %form{action: '/', method: 'POST'}
+            %table
+                =vote_form.as_table
+            %button Vote!
 
 
 ## Questions or Feedback
