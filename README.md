@@ -15,11 +15,11 @@ and is licensed under the MIT license.
 You can either copy all the files into 'djaml' in the root of your Django project
 or install it using the included setup.py file.
 
-Having done that, you need to add djaml as the first item in TEMPLATE_LOADERS 
-    
+Having done that, you need to add djaml as the first item in TEMPLATE_LOADERS
+
     TEMPLATE_LOADERS = (
-        'djaml.filesystem',
-        'djaml.app_directories',
+        'djaml.loaders.DjamlFilesystemLoader',
+        'djaml.loaders.DjamlAppDirectoriesLoader',
         ...
     )
 
@@ -28,6 +28,21 @@ it first.
 
 Make sure your templates have a .haml extension, and put them wherever you've told Django
 to expect to find templates.
+
+
+## Template caching
+
+Just add `django.template.loaders.cached.Loader` to your TEMPLATE_LOADERS:
+
+TEMPLATE_LOADERS = (
+    ('django.template.loaders.cached.Loader', (
+        ...
+        'djaml.loaders.DjamlFilesystemLoader',
+        'django.template.loaders.filesystem.Loader',
+        ...
+  )),
+)
+
 
 ## Example
 
