@@ -6,6 +6,7 @@ from django.template import Library
 from hamlpy import hamlpy
 
 register = Library()
+hamlParser = hamlpy.Compiler()
 
 
 @register.filter
@@ -15,5 +16,4 @@ def render_haml(source):
 
 	Renders *source* string as HAML with HamlPy.
 	"""
-	hamlParser = hamlpy.Compiler()
 	return hamlParser.process(source)
