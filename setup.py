@@ -5,7 +5,7 @@ from setuptools import setup
 
 setup(
     name='djaml',
-    version='1.0',
+    version='1.1',
     author='Chris Hartjes',
     description=('A Django template loader for loading and converting '
                  'HamlPy markup to HTML'),
